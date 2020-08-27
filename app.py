@@ -9,9 +9,10 @@ chrome_options.add_argument("--headless")
 # chrome_options.headless = True # also works
 driver = webdriver.Chrome(options=chrome_options)
 bestPrice = 0
+productUrl = input("Please enter the URL of the product you which to price track: ")
 while True:
     
-    driver.get("https://www.bestbuy.ca/en-ca/product/razer-usa-razer-deathadder-elite-16000-dpi-optical-gaming-mouse-black-rz01-02010100-r3u1/10529015")
+    driver.get(productUrl)
     sleep(1)
 
     search1 = driver.find_element_by_class_name("price_FHDfG")
@@ -24,5 +25,5 @@ while True:
         # Insert code to send an email that says that there is a price drop
     print(str(output))
     sleep(20)
-
+# driver must not be quit each time
 driver.quit()
